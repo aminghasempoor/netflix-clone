@@ -8,6 +8,10 @@ const nextConfig = {
         hostname: "192.168.1.115",
         port: "8000",
       },
+      {
+        protocol: "https",
+        hostname: "assets.nflxext.com",
+      },
     ],
   },
 };

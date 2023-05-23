@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Request from "@/utils/Request";
+import Request from "@/core/utils/Request";
 
 function NavBar() {
   const router = useRouter();

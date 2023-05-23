@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "@/components/Header/Header";
 import NavBar from "@/components/NavBar/NavBar";
 import Movies from "@/components/Movies/Movies";
-import Request from "@/utils/Request";
+import Request from "@/core/utils/Request";
 
 export default function Home({ result }) {
   console.log(result);

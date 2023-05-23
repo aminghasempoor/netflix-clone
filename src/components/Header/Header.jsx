@@ -13,12 +13,12 @@ function Header() {
   return (
     <header className="flex flex-col sm:flex-row m-4 justify-between items-center h-auto">
       <div className="flex flex-grow justify-evenly items-center max-w-2xl">
-        <HeaderItems text="HOME" Icon={HomeIcon} />
-        <HeaderItems text="VERIFIED" Icon={BadgeCheckIcon} />
-        <HeaderItems text="TRENDING" Icon={LightningBoltIcon} />
-        <HeaderItems text="COLLECTION" Icon={CollectionIcon} />
-        <HeaderItems text="SEARCH" Icon={SearchIcon} />
-        <HeaderItems text="ACCOUNT" Icon={UserIcon} />
+        <HeaderItems text="HOME" Icon={HomeIcon} link="/" />
+        <HeaderItems text="VERIFIED" Icon={BadgeCheckIcon} link="/" />
+        <HeaderItems text="TRENDING" Icon={LightningBoltIcon} link="/" />
+        <HeaderItems text="COLLECTION" Icon={CollectionIcon} link="/" />
+        <HeaderItems text="SEARCH" Icon={SearchIcon} link="/" />
+        <HeaderItems text="ACCOUNT" Icon={UserIcon} link="/login" />
       </div>
       <Image
         className="object-contain"

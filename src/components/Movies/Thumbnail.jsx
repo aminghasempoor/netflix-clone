@@ -6,7 +6,7 @@ function Thumbnail({ movies }) {
   return (
     <div className="group cursor-pointer p-2 transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50">
       <Image
-        className="rounded"
+        className="rounded w-full h-[400px]"
         height={1080}
         width={1920}
         alt="picture"
