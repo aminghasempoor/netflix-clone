@@ -6,7 +6,7 @@ import useUser from "@/lib/app/hooks/useUser";
 
 const LoginComponent = () => {
   const userRef = useRef();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setToken } = useUser();
   const [people, setPeople] = useState([]);
@@ -17,8 +17,8 @@ const LoginComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email && password) {
-      const person = { email, password };
+    if (username && password) {
+      const person = { username, password };
       setPeople((people) => {
         return [...people, person];
       });
@@ -28,25 +28,20 @@ const LoginComponent = () => {
     }
 
     try {
+      console.log(username, password);
+
       const response = await axios.post(
-        "http://192.168.1.115:8000/api/login",
-        { email: email, password: password },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
+        "http://192.168.1.115:8000/api/user_login",
+        { username: username, password: password }
       );
       console.log(response.data.token);
-      // localStorage.setItem("Authorization", `Bearer ${response.data.token}`);
+      console.log(username, password);
       setToken(response.data.token);
-      setEmail("");
+      setUsername("");
       setPassword("");
     } catch (err) {
-      if (!err?.response) {
-        alert("err");
-      }
+      console.log(err);
+      console.log(username, password);
     }
   };
 
@@ -70,24 +65,24 @@ const LoginComponent = () => {
             >
               <div className="form_control">
                 <label
-                  htmlFor="email"
+                  htmlFor="username"
                   style={{
                     fontWeight: "bold",
                     letterSpacing: "3px",
                   }}
                 >
-                  Email :{" "}
+                  Username
                 </label>
                 <br />
                 <input
                   type="text"
                   className="p-2 w-full my-2 bg-gray-600 rounded"
-                  id="email"
+                  id="username"
                   ref={userRef}
                   autoComplete="off"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <div className="form_control">
@@ -98,7 +93,7 @@ const LoginComponent = () => {
                     letterSpacing: "3px",
                   }}
                 >
-                  Password :{" "}
+                  Password
                 </label>
                 <br />
                 <input

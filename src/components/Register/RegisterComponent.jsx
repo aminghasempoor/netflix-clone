@@ -68,7 +68,7 @@ const RegisterComponent = () => {
         <div className="bg-black/60 fixed top-0 left-0 w-full h-screen"></div>
         <div className="fixed w-full h-full px-4 py-6 sm:w-full z-50">
           <div className="max-w-[450px] max-h-[850px] my-24 mx-auto bg-black/75 text-white">
-            <div className="max-w-[320px] py-14 mx-auto">
+            <div className="max-w-[320px] py-8 mx-auto">
               <h1 className="text-3xl font-bold px-1">Sign Up</h1>
               <form
                 className="w-full h-auto flex flex-col py-4 px-1"

@@ -10,7 +10,7 @@ function Thumbnail({ movies }) {
         height={1080}
         width={1920}
         alt="picture"
-        src={`http://192.168.1.115:8000/${movies.image_path}`}
+        src={`http://192.168.1.115:8000/${movies.image}`}
       />
       <div className="p-2">
         <h1 className="mt-1 text-2xl transition-all duration-100 ease-in-out group-hover:font-bold">
