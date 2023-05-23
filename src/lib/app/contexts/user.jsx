@@ -55,15 +55,15 @@ export const UserProvider = ({ children }) => {
 
   const getUser = useCallback(
     (callback = () => {}) => {
-      axios
-        .get(GET_USER_ROUTE, {
-          headers: {
-            authorization: `Bearer ${state.token}`,
-          },
-        })
-        .then(({ data }) => {
-          if (typeof callback === "function") callback(data);
-        });
+      // axios
+      //   .get(GET_USER_ROUTE, {
+      //     headers: {
+      //       authorization: `Bearer ${state.token}`,
+      //     },
+      //   })
+      //   .then(({ data }) => {
+      //     if (typeof callback === "function") callback(data);
+      //   });
     },
     [state.token]
   );
@@ -77,14 +77,12 @@ export const UserProvider = ({ children }) => {
     if (!state.token) {
       clearUser();
       changeAuthState(false);
-      changeLanguageState(false);
       return;
     }
 
     getUser((data) => {
       changeUser(data);
       changeAuthState(true);
-      changeLanguageState(true);
     });
   }, [state.token]);
 
@@ -97,9 +95,7 @@ export const UserProvider = ({ children }) => {
         getUser,
         clearUser,
         changeUser,
-        changeUserLanguage,
         changeAuthState,
-        changeLanguageState,
         clearToken,
         setToken,
       }}
