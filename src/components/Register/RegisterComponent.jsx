@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
+import useUser from "@/lib/app/hooks/useUser";
 
 const RegisterComponent = () => {
   const userRef = useRef();
@@ -10,6 +11,7 @@ const RegisterComponent = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [people, setPeople] = useState([]);
+  const { setToken } = useUser();
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -48,6 +50,7 @@ const RegisterComponent = () => {
         }
       );
       console.log(response.data.token);
+      setToken(response.data.token);
       console.log(JSON.stringify(response));
     } catch (err) {
       if (!err?.response) {
